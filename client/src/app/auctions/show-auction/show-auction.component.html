@@ -1,0 +1,24 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/auctions']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{auction.name}}</h2></mat-card-title>
+      <mat-card-subtitle>Price: {{auction.price}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>description: {{auction.description}}</h3>
+      <p>picture url: {{auction.picture_url}}</p>
+      <p>time left: {{auction.time}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/edit-auction/', auction._id]"><mat-icon>edit</mat-icon></a>
+      <a mat-flat-button color="warn" (click)="deleteAuction(auction._id)"><mat-icon>delete</mat-icon></a>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,15 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/Baskets']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{Basket.auction_in_progress}}</h2></mat-card-title>
+      <mat-card-subtitle>{{Basket.number_of_lots}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>

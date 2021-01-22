@@ -1,0 +1,17 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/clients']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2>{{Client.user_login}}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>{{Client.card}}</h3>
+    </mat-card-content>
+  </mat-card>
+</div>

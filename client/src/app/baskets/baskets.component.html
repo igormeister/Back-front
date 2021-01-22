@@ -1,0 +1,28 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="data" class="example-table"
+           matSort matSortActive="title" matSortDisableClear matSortDirection="asc">
+
+      <!-- basket Title Column -->
+      <ng-container matColumnDef="auction_in_progress">
+        <th mat-header-cell *matHeaderCellDef>Active auctions: </th>
+        <td mat-cell *matCellDef="let row">{{row.auction_in_progress}}</td>
+      </ng-container>
+
+      <!-- basket Author Column -->
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Active lots: </th>
+        <td mat-cell *matCellDef="let row">Active lots: {{row.number_of_lots}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    </table>
+  </div>
+</div>

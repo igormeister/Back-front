@@ -1,0 +1,49 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/lots']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="lotForm" (ngSubmit)="onFormSubmit()">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="name" formControlName="name"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!lotForm.get('name').valid && lotForm.get('name').touched">Please enter name</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Description" formControlName="description"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!lotForm.get('description').valid && lotForm.get('description').touched">Please enter Description</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="picture_url" formControlName="picture_url"
+               [errorStateMatcher]="matcher"></textarea>
+        <mat-error>
+          <span *ngIf="!lotForm.get('picture_url').valid && lotForm.get('picture_url').touched">Please enter picture_url</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="price" formControlName="price"
+               [errorStateMatcher]="matcher"></textarea>
+        <mat-error>
+          <span *ngIf="!lotForm.get('price').valid && lotForm.get('price').touched">Please enter price</span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button type="submit" [disabled]="!lotForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      </div>
+    </form>
+  </mat-card>
+</div>

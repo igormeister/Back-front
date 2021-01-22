@@ -1,0 +1,58 @@
+
+<form [formGroup] ='myform' (ngSubmit)='gonext()'>
+    <h2 class="text-center">Lot creating</h2>
+
+    <div class='form-control'>
+        <label for="type">Type</label>
+        <select formControlName="type">
+            <option for="type">Painting</option>
+            <option for="type">Sculpture</option>
+            <option for="type">Smithing</option>
+            <option for="type">Gardening</option>
+            <option for="type">Ceramic|Porcelain</option>
+            <option for="type">Jewelcrafting</option>
+        </select>
+        <div *ngIf="myform.get('type').touched && myform.get('type').invalid" class="validation">
+            <small *ngIf="myform.get('type').errors.required">choose type</small>
+            
+        </div>
+    </div>
+
+    <div class='form-control'>
+        <label for="title">Title</label>
+        <input type="title" formControlName='title' id="title">
+        <div *ngIf="myform.get('title').touched && myform.get('title').invalid" class="validation">
+            <small *ngIf="myform.get('title').errors.required">Enter title</small>
+            
+        </div>
+    </div>
+
+    <div class='form-control'>
+        <label for="photo">Image URL</label>
+        <input type="photo" formControlName='photo' id="photo">
+        <div *ngIf="myform.get('info').touched && myform.get('info').invalid" class="validation">
+            <small *ngIf="myform.get('photo').errors.required">Enter image</small>
+        </div>
+    </div>
+    
+    <div class='form-control'>
+        <label for="info">Description</label>
+        <input type="info" formControlName='info' id="info">
+        <div *ngIf="myform.get('info').touched && myform.get('info').invalid" class="validation">
+            <small *ngIf="myform.get('info').errors.required">Enter description</small>
+        </div>        
+    </div>
+
+    <div class='form-control'>
+        <label for="price">Price</label>
+        <input type="price" formControlName='price' id="price">
+        <div *ngIf="myform.get('price').touched && myform.get('price').invalid" class="validation">
+            <small *ngIf="myform.get('price').errors.required">Enter price</small>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="myform.invalid" (click)='gonext()'>
+       Submit
+    </button>
+
+</form>

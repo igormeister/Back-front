@@ -1,0 +1,17 @@
+<nav class="navbar bg-dark">
+    <h2>#Shop#</h2> <!--Изменить на название-->
+    <ul>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/dashboard']">Dashboard</a>
+        </li>  
+        <li routerLinkActive="active">
+            <a [routerLink]="['/login']">Sign in</a>
+        </li>     
+        <li routerLinkActive="active">
+            <a [routerLink]="['/registration']">Sign up</a>
+        </li> 
+    </ul>
+</nav>
+<div class = "container">
+    <router-outlet></router-outlet>
+</div>
